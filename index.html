@@ -63,25 +63,16 @@
             height: 200px; /* Fixed height for consistency */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .image-carousel-img {
-            border-radius: 0.75rem;
-            width: 100%;
-            max-width: 600px; /* Max width for carousel image */
-            height: auto;
-            max-height: 400px; /* Max height for carousel image */
-            object-fit: contain; /* Ensure image fits without cropping */
+        /* Styling for the automatically changing profile image */
+        .profile-carousel-img {
+            border-radius: 50%; /* Make it round */
+            width: 150px;
+            height: 150px;
+            object-fit: cover; /* Crop image to fit circular shape */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
-        }
-        .carousel-button {
-            background-color: #ef4444;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease;
-        }
-        .carousel-button:hover {
-            background-color: #dc2626;
+            /* Updated transition for both opacity and transform for fade-slide effect */
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
         }
     </style>
 </head>
@@ -95,7 +86,6 @@
                 <ul class="flex space-x-6 text-lg">
                     <li><a href="#about" class="hover:text-red-400 transition duration-300">About Me</a></li>
                     <li><a href="#media" class="hover:text-red-400 transition duration-300">Media & Videos</a></li>
-                    <li><a href="#single-image-display" class="hover:text-red-400 transition duration-300">Featured Moments</a></li>
                     <li><a href="#gallery" class="hover:text-red-400 transition duration-300">Gallery</a></li>
                     <li><a href="#connect" class="hover:text-red-400 transition duration-300">Connect</a></li>
                 </ul>
@@ -106,8 +96,8 @@
     <!-- Hero/About Section -->
     <section id="about" class="section-bg py-16 md:py-24 text-center">
         <div class="container mx-auto px-4">
-            <!-- Profile image updated to use GitHub direct URL -->
-            <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image1.jpg" alt="Yuvraj Gokul Profile" class="rounded-full w-36 h-36 mx-auto mb-6 shadow-lg">
+            <!-- Profile image with an ID for JavaScript control -->
+            <img id="profileImage" src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image1.jpg" alt="Yuvraj Gokul Profile" class="profile-carousel-img mx-auto mb-6">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">Namaste! I'm Yuvraj Gokul</h2>
             <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
                 As a political analyst and an active voice within the Bharatiya Janata Party (BJP) in Kerala, I am committed to engaging in constructive discourse on the political and social issues that shape our state and nation. My journey involves understanding and articulating the nuances of governance, public policy, and the aspirations of our people.
@@ -171,67 +161,44 @@
         </div>
     </section>
 
-    <!-- Single Image Display Section with Navigation -->
-    <section id="single-image-display" class="section-bg py-16 md:py-20 text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-10">Featured Moments</h2>
-
-            <div class="flex flex-col items-center">
-                <!-- This is the image element that will display your images -->
-                <img id="displayImage" src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image1.jpg" alt="Featured Moment" class="image-carousel-img mb-6">
-                <div class="flex space-x-4">
-                    <button id="prevBtn" class="carousel-button">Previous</button>
-                    <button id="nextBtn" class="carousel-button">Next</button>
-                </div>
-                <!-- This paragraph will show the caption for each image -->
-                <p id="imageCaption" class="text-lg text-gray-700 mt-4">Public appearance from Yuvraj Gokul.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Gallery Section -->
     <section id="gallery" class="py-16 md:py-20 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">My Photo Gallery</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Gallery Item examples - now using GitHub direct URLs -->
+                <!-- Gallery Items - Updated to use the recommended naming convention and path -->
                 <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image1.jpg" alt="Event Photo 1" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">Speaking at a Public Event</p>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-1.jpg" alt="Gallery Photo 1" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">Moment from a recent event.</p>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image2.jpg" alt="Debate Photo 2" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">On a News Debate Panel</p>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-2.jpg" alt="Gallery Photo 2" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">Engaging with the public.</p>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image3.jpg" alt="Community Photo 3" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">Engaging with the Community</p>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-3.jpg" alt="Gallery Photo 3" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">At a press conference.</p>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image4.jpg" alt="Interview Photo 4" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">During a Media Interview</p>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-4.jpg" alt="Gallery Photo 4" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">Participating in a discussion.</p>
                 </div>
-                <!-- Add more gallery items here using the same URL pattern (image5.jpg, image6.jpg etc.) -->
-                <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image5.jpg" alt="Campaign Photo 5" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">On the Campaign Trail</p>
-                </div>
-                <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image6.jpg" alt="Discussion Photo 6" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">Panel Discussion</p>
+                 <div>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-5.jpg" alt="Gallery Photo 5" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">A moment of reflection.</p>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image7.jpg" alt="Greeting Photo 7" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">Sharing Insights</p>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-6.jpg" alt="Gallery Photo 6" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">Community interaction.</p>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image8.jpg" alt="Office Photo 8" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">At a Party Gathering</p>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-7.jpg" alt="Gallery Photo 7" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">Campaign trail.</p>
                 </div>
                 <div>
-                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image9.jpg" alt="Reflection Photo 9" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">A Moment of Reflection</p>
+                    <img src="https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/gallery/gallery-image-8.jpg" alt="Gallery Photo 8" class="gallery-img">
+                    <p class="text-center text-sm text-gray-600 mt-2">Official visit.</p>
                 </div>
             </div>
         </div>
@@ -274,48 +241,49 @@
     </footer>
 
     <script>
-        // Array of image objects, each with a source path and a caption
-        // Ensure these paths are correct, using the raw.githubusercontent.com URLs
-        const images = [
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image1.jpg", caption: "Engaging with the public." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image2.jpg", caption: "Participating in a political debate." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image3.jpg", caption: "Addressing supporters at a rally." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image4.jpg", caption: "A candid moment during an interview." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image5.jpg", caption: "Discussing policy with community leaders." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image6.jpg", caption: "On the ground, connecting with citizens." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image7.jpg", caption: "Sharing insights on current affairs." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image8.jpg", caption: "At a party gathering." },
-            { src: "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/main/src/image9.jpg", caption: "A moment of reflection." }
+        // Array of image objects for the automatically changing profile image
+        const profileImages = [
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image1.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image2.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image3.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image4.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image5.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image6.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image7.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image8.jpg",
+            "https://raw.githubusercontent.com/udayanmcp/yuvrajgokul/refs/heads/main/src/Image9.jpg"
         ];
 
-        let currentIndex = 0; // Tracks the current image being displayed
-        const displayImage = document.getElementById('displayImage'); // The <img> element
-        const imageCaption = document.getElementById('imageCaption'); // The <p> element for captions
-        const prevBtn = document.getElementById('prevBtn'); // The "Previous" button
-        const nextBtn = document.getElementById('nextBtn'); // The "Next" button
+        let currentProfileImageIndex = 0;
+        const profileImageElement = document.getElementById('profileImage');
 
-        // Function to update the image source and caption
-        function updateImageDisplay() {
-            displayImage.src = images[currentIndex].src;
-            imageCaption.textContent = images[currentIndex].caption;
+        function changeProfileImage() {
+            // Stage 1: Fade out and slide out slightly to the left
+            profileImageElement.style.opacity = 0;
+            profileImageElement.style.transform = 'translateX(-20px)'; // Move slightly left
+
+            // After the first transition completes (0.6s)
+            setTimeout(() => {
+                // Update the image source
+                currentProfileImageIndex = (currentProfileImageIndex + 1) % profileImages.length;
+                profileImageElement.src = profileImages[currentProfileImageIndex];
+
+                // Stage 2: Prepare new image off-screen to the right and invisible
+                profileImageElement.style.transform = 'translateX(20px)'; // Start slightly right
+                profileImageElement.style.opacity = 0; // Ensure it's still invisible before sliding in
+
+                // Stage 3: Fade in and slide to center
+                // A tiny delay is needed here for the browser to register the initial transform state before animating
+                setTimeout(() => {
+                    profileImageElement.style.opacity = 1;
+                    profileImageElement.style.transform = 'translateX(0)'; // Slide back to center
+                }, 50); // Small delay (50ms) before animating back in for smoother effect
+
+            }, 600); // This delay matches the transition duration for the fade-out/slide-out
         }
 
-        // Event listener for the "Previous" button
-        prevBtn.addEventListener('click', () => {
-            // Decrement index, loop to end if currently at the first image
-            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-            updateImageDisplay(); // Update the display
-        });
-
-        // Event listener for the "Next" button
-        nextBtn.addEventListener('click', () => {
-            // Increment index, loop to start if currently at the last image
-            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-            updateImageDisplay(); // Update the display
-        });
-
-        // Initialize the display with the first image when the page loads
-        updateImageDisplay();
+        // Change image every 3 seconds (3000 milliseconds)
+        setInterval(changeProfileImage, 3000);
     </script>
 
 </body>
