@@ -63,6 +63,26 @@
             height: 200px; /* Fixed height for consistency */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+        .image-carousel-img {
+            border-radius: 0.75rem;
+            width: 100%;
+            max-width: 600px; /* Max width for carousel image */
+            height: auto;
+            max-height: 400px; /* Max height for carousel image */
+            object-fit: contain; /* Ensure image fits without cropping */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+        .carousel-button {
+            background-color: #ef4444;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-button:hover {
+            background-color: #dc2626;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -75,6 +95,7 @@
                 <ul class="flex space-x-6 text-lg">
                     <li><a href="#about" class="hover:text-red-400 transition duration-300">About Me</a></li>
                     <li><a href="#media" class="hover:text-red-400 transition duration-300">Media & Videos</a></li>
+                    <li><a href="#single-image-display" class="hover:text-red-400 transition duration-300">Featured Moments</a></li>
                     <li><a href="#gallery" class="hover:text-red-400 transition duration-300">Gallery</a></li>
                     <li><a href="#connect" class="hover:text-red-400 transition duration-300">Connect</a></li>
                 </ul>
@@ -149,58 +170,54 @@
         </div>
     </section>
 
+    <!-- Single Image Display Section with Navigation -->
+    <section id="single-image-display" class="section-bg py-16 md:py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-10">Featured Moments</h2>
+
+            <div class="flex flex-col items-center">
+                <!-- This is the image element that will display your images -->
+                <img id="displayImage" src="src/image1.jpg" alt="Featured Moment" class="image-carousel-img mb-6">
+                <div class="flex space-x-4">
+                    <button id="prevBtn" class="carousel-button">Previous</button>
+                    <button id="nextBtn" class="carousel-button">Next</button>
+                </div>
+                <!-- This paragraph will show the caption for each image -->
+                <p id="imageCaption" class="text-lg text-gray-700 mt-4">Public appearance from Yuvraj Gokul.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Section -->
-    <section id="gallery" class="section-bg py-16 md:py-20">
+    <section id="gallery" class="py-16 md:py-20 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">My Photo Gallery</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Gallery Item 1 -->
+                <!-- Gallery Item examples - you can replace these with more images from your src folder -->
                 <div>
-                    <img src="https://placehold.co/400x300/a78bfa/ffffff?text=Event+1" alt="Event Photo 1" class="gallery-img">
+                    <img src="src/image1.jpg" alt="Event Photo 1" class="gallery-img">
                     <p class="text-center text-sm text-gray-600 mt-2">Speaking at a Public Event</p>
                 </div>
-                <!-- Gallery Item 2 -->
                 <div>
-                    <img src="https://placehold.co/400x300/fca5a5/ffffff?text=Debate+Panel" alt="Debate Photo 2" class="gallery-img">
+                    <img src="src/image2.jpg" alt="Debate Photo 2" class="gallery-img">
                     <p class="text-center text-sm text-gray-600 mt-2">On a News Debate Panel</p>
                 </div>
-                <!-- Gallery Item 3 -->
                 <div>
-                    <img src="https://placehold.co/400x300/60a5fa/ffffff?text=Community+Meet" alt="Community Photo 3" class="gallery-img">
+                    <img src="src/image3.jpg" alt="Community Photo 3" class="gallery-img">
                     <p class="text-center text-sm text-gray-600 mt-2">Engaging with the Community</p>
                 </div>
-                <!-- Gallery Item 4 -->
                 <div>
-                    <img src="https://placehold.co/400x300/86efad/ffffff?text=Interview" alt="Interview Photo 4" class="gallery-img">
+                    <img src="src/image4.jpg" alt="Interview Photo 4" class="gallery-img">
                     <p class="text-center text-sm text-gray-600 mt-2">During a Media Interview</p>
                 </div>
-                <!-- Gallery Item 5 -->
-                <div>
-                    <img src="https://placehold.co/400x300/fcd34d/ffffff?text=Campaign" alt="Campaign Photo 5" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">On the Campaign Trail</p>
-                </div>
-                <!-- Gallery Item 6 -->
-                <div>
-                    <img src="https://placehold.co/400x300/a3e635/ffffff?text=Discussion" alt="Discussion Photo 6" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">Panel Discussion</p>
-                </div>
-                <!-- Gallery Item 7 -->
-                <div>
-                    <img src="https://placehold.co/400x300/fbbf24/ffffff?text=Greeting" alt="Greeting Photo 7" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">Greeting Supporters</p>
-                </div>
-                <!-- Gallery Item 8 -->
-                <div>
-                    <img src="https://placehold.co/400x300/c084fc/ffffff?text=Office" alt="Office Photo 8" class="gallery-img">
-                    <p class="text-center text-sm text-gray-600 mt-2">At My Office</p>
-                </div>
+                <!-- Add more gallery items here if needed, linking to image5.jpg, image6.jpg etc. -->
             </div>
         </div>
     </section>
 
     <!-- Social Media & Connect Section -->
-    <section id="connect" class="py-16 md:py-20 bg-gray-100">
+    <section id="connect" class="section-bg py-16 md:py-20">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold text-gray-800 mb-6">Connect with Me on Social Media</h2>
             <p class="text-lg text-gray-700 max-w-xl mx-auto mb-8">
@@ -234,6 +251,51 @@
             <p class="text-sm mt-2">Developed for an authentic online presence.</p>
         </div>
     </footer>
+
+    <script>
+        // Array of image objects, each with a source path and a caption
+        // Ensure these paths are correct relative to your index.html file
+        const images = [
+            { src: "src/image1.jpg", caption: "Engaging with the public." },
+            { src: "src/image2.jpg", caption: "Participating in a political debate." },
+            { src: "src/image3.jpg", caption: "Addressing supporters at a rally." },
+            { src: "src/image4.jpg", caption: "A candid moment during an interview." },
+            { src: "src/image5.jpg", caption: "Discussing policy with community leaders." },
+            { src: "src/image6.jpg", caption: "On the ground, connecting with citizens." },
+            { src: "src/image7.jpg", "caption": "Sharing insights on current affairs." },
+            { src: "src/image8.jpg", caption: "At a party gathering." },
+            { src: "src/image9.jpg", caption: "A moment of reflection." }
+        ];
+
+        let currentIndex = 0; // Tracks the current image being displayed
+        const displayImage = document.getElementById('displayImage'); // The <img> element
+        const imageCaption = document.getElementById('imageCaption'); // The <p> element for captions
+        const prevBtn = document.getElementById('prevBtn'); // The "Previous" button
+        const nextBtn = document.getElementById('nextBtn'); // The "Next" button
+
+        // Function to update the image source and caption
+        function updateImageDisplay() {
+            displayImage.src = images[currentIndex].src;
+            imageCaption.textContent = images[currentIndex].caption;
+        }
+
+        // Event listener for the "Previous" button
+        prevBtn.addEventListener('click', () => {
+            // Decrement index, loop to end if currently at the first image
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateImageDisplay(); // Update the display
+        });
+
+        // Event listener for the "Next" button
+        nextBtn.addEventListener('click', () => {
+            // Increment index, loop to start if currently at the last image
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateImageDisplay(); // Update the display
+        });
+
+        // Initialize the display with the first image when the page loads
+        updateImageDisplay();
+    </script>
 
 </body>
 </html>
